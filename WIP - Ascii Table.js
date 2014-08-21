@@ -11,6 +11,9 @@ function createAsciiTable ( headers , rows ) {
 	for ( var i = 0; i < rows.length; i++ ) {
 		if ( !Object.prototype.toString.call(rows[i]) == '[object Array]' ) return 'rows['+i+'] not array';
 		if ( rows[i].length !== headers.length ) return 'rows['+i+'].length does not match headers length';
+		for ( var j = 0; j < rows[i].length; j++ ) {
+			if ( !typeof(rows[i][j] == 'string' || !typeof(rows[i][j] == 'number' ) return 'rows['+i+']['+j+'] not string or number';
+		}
 	}
 	
 	// Headers
