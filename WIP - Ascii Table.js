@@ -12,25 +12,53 @@ function createAsciiTable ( headers , rows ) {
 		if ( !Object.prototype.toString.call(rows[i]) == '[object Array]' ) return 'rows['+i+'] not array';
 		if ( rows[i].length !== headers.length ) return 'rows['+i+'].length does not match headers length';
 		for ( var j = 0; j < rows[i].length; j++ ) {
-			if ( !typeof(rows[i][j] == 'string' || !typeof(rows[i][j] == 'number' ) return 'rows['+i+']['+j+'] not string or number';
+			if ( !typeof(rows[i][j]) == 'string' || !typeof(rows[i][j]) == 'number' ) return 'rows['+i+']['+j+'] not string or number';
 		}
 	}
 	
 	// Headers
-	var table = '+', temp = '';
+	var table = '', temp = '', header = '', body = '', line = '+';
 	for ( var i = 0; i < headers.length; i++ ) {
 		for ( var j = 0; j < headers[i].length + 4; j++ ) {
-			table += '-';
+			line += '-';
 		}
-		table += '+';
+		line += '+';
 	}
 	for ( var i = 0; i < headers.length; i++ ) {
 		temp += '|  ' + headers[i] + '  ';
 	}
 	temp += '|';
-	table = table + '\n' + temp + '\n' + table;
+	table = line + '\n' + temp + '\n' + line;
 	
+	header = table;
+	table = '';
 	temp = '';
+	
+	// Adjust Body Row Elements Length
+	for ( var i = 0; i < rows.length; i++ ) {
+		for ( var j = 0; j < rows[i].length; j++ ) {
+			var k = 1;
+			while ( rows[i][j].length < headers[j].length ) {
+				if ( k % 2 == 0 ) {
+					rows[i][j] = ' ' + rows[i][j];
+				} else {
+					rows[i][j] += ' ';
+				}
+				k++;
+			}
+		}
+	}
+	
+	// Body
+	for ( var i = 0; i < rows.length; i++ ) {
+		for ( var j = 0; j < rows[i].length; j++ ) {
+			body += '|  ' + rows[i][j].substr(0, headers[j].length) + '  ';
+		}
+		body += '|\n';
+	}
+	
+	// Completion
+	table = header + '\n' + body + line;
 	
 	return table;
 	
