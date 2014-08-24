@@ -12,7 +12,7 @@ Call the function using <code>createAsciiTable(<em>headers</em>, <em>rows</em>);
 
 <h2>Example:</h2>
 
-`createAsciiTable(["headerColumn1","headerColumn2","headerColumn3"],[["row1column1","row1column2","row1column3"],["row2column1","row2column2","row2column3"],["row3column1","row3column2","row3column3"]]);`
+<pre><code>createAsciiTable(["headerColumn1","headerColumn2","headerColumn3"],[["row1column1","row1column2","row1column3"],["row2column1","row2column2","row2column3"],["row3column1","row3column2","row3column3"]]);</code></pre>
 
 <pre id="table">+-----------------+-----------------+-----------------+
 |  headerColumn1  |  headerColumn2  |  headerColumn3  |
