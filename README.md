@@ -1,4 +1,4 @@
-<h1>WIP-Ascii-Table-Creation</h1>
+<h1>Ascii Table Creation</h1>
 
 Create an Ascii Table easily with Javascript
 
