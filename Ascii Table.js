@@ -21,25 +21,31 @@ function createAsciiTable ( headers , rows ) {
 		for ( var j = 0; j < rows[i].length; j++ ) {
 			var k = 1;
 			if ( rows[i][j].length > headers[j].length ) {
-				while ( rows[i][j].length > headers[j].length ) {
-					if ( k % 2 == 0 ) {
-						headers[j] = ' ' + headers[j];
-					} else {
-						headers[j] += ' ';
-					}
-					k++;
-				}
+				headers[j] = adjust( headers[j] , rows[i][j].length );
 			} else if ( rows[i][j].length < headers[j].length ) {
-				while ( rows[i][j].length < headers[j].length ) {
-					if ( k % 2 == 0 ) {
-						rows[i][j] = ' ' + rows[i][j];
-					} else {
-						rows[i][j] += ' ';
-					}
-					k++;
+				rows[i][j] = adjust( rows[i][j] , headers[j].length );
+			}
+			for ( var l = 0; l < rows.length; l++ ) {
+				if ( rows[l][j].length > rows[i][j].length ) {
+					rows[i][j] = adjust( rows[i][j] , rows[l][j].length );
+				} else if ( rows[l][j].length < rows[i][j].length ) {
+					rows[l][j] = adjust( rows[l][j] , rows[i][j].length );
 				}
 			}
 		}
+	}
+	
+	function adjust ( item , length ) {
+		var k = 1;
+		while ( item.length < length ) {
+			if ( k % 2 == 0 ) {
+				item = ' ' + item;
+			} else {
+				item += ' ';
+			}
+			k++;
+		}
+		return item;
 	}
 	
 	// Headers
