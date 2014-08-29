@@ -16,6 +16,7 @@ Demo: http://spedwards.github.io/projects/asciiTables/
 
     createAsciiTable(["headerColumn1","h2","headerColumn3"],[["row1column1","row1column2","1.3"],["row2column1","2.2","row2column3"],["3.1","row3column2","row3column3"]]);
 
+<br />
 
     +-----------------+---------------+-----------------+
     |  headerColumn1  |      h2       |  headerColumn3  |
