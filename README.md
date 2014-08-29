@@ -12,12 +12,14 @@ Call the function using <code>createAsciiTable(<em>headers</em>, <em>rows</em>);
 
 <h2>Example:</h2>
 
+	Demo: http://spedwards.github.io/projects/asciiTables/
+
     createAsciiTable(["headerColumn1","h2","headerColumn3"],[["row1column1","row1column2","1.3"],["row2column1","2.2","row2column3"],["3.1","row3column2","row3column3"]]);
 
-<pre id="table">+-----------------+---------------+-----------------+
-|  headerColumn1  |      h2       |  headerColumn3  |
-+-----------------+---------------+-----------------+
-|   row1column1   |  row1column2  |       1.3       |
-|   row2column1   |      2.2      |   row2column3   |
-|       3.1       |  row3column2  |   row3column3   |
-+-----------------+---------------+-----------------+</pre>
+    +-----------------+---------------+-----------------+
+    |  headerColumn1  |      h2       |  headerColumn3  |
+    +-----------------+---------------+-----------------+
+    |   row1column1   |  row1column2  |       1.3       |
+    |   row2column1   |      2.2      |   row2column3   |
+    |       3.1       |  row3column2  |   row3column3   |
+    +-----------------+---------------+-----------------+
